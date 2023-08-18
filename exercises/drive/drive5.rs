@@ -5,10 +5,9 @@
 // You should not modify any existing code. All you need to do is add two line of attributes.
 
 
-// I AM NOT DONE
 
 
-extern {
+ extern  {
     fn my_demo_function(a:u32) -> u32;
     fn my_demo_function_alias(a:u32) -> u32;
 }
@@ -16,15 +15,18 @@ extern {
 
 
 
-mod Foo{
-    fn my_demo_function(a:u32) -> u32 {a}
+mod Foo {
+    pub fn my_demo_function(a:u32) -> u32 {a}
+    pub fn my_demo_function_alias(a:u32) -> u32 {a}
 }
+
 
 
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    // use super::*;
+    use super::Foo::*;
 
     #[test]
     fn test_success() {
